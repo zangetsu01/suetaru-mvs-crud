@@ -1,0 +1,564 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #f0f2f5;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Шапка */
+.header {
+    background: white;
+    border-radius: 16px;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ff6b00;
+}
+
+.btn-add {
+    background: #ff6b00;
+    color: white;
+    padding: 8px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* Сетка карточек */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 20px;
+}
+
+/* Карточка */
+.card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.card-photo {
+    height: 180px;
+    background: #e9ecef;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+}
+
+.card-body {
+    padding: 16px;
+}
+
+.car-name {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.price {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ff6b00;
+    margin: 8px 0;
+}
+
+.specs {
+    font-size: 13px;
+    color: #6c757d;
+    margin: 8px 0;
+    padding: 8px 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+.desc {
+    font-size: 13px;
+    color: #495057;
+    margin: 10px 0;
+    line-height: 1.4;
+}
+
+.actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.btn {
+    flex: 1;
+    text-align: center;
+    padding: 8px;
+    background: #ff6b00;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 13px;
+    text-decoration: none;
+    color: #000000;
+    font-weight: 500;
+}
+
+
+.form-box {
+    background: white;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.form-box h2 {
+    margin-bottom: 20px;
+}
+
+.form-box input,
+.form-box select,
+.form-box textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    font-size: 16px;
+}
+
+.form-box button {
+    width: 100%;
+    padding: 14px;
+    background: #ff6b00;
+    color: white;
+    border: none;
+    border-radius: 40px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+.card-photo {
+    height: 180px;
+    background: #e9ecef;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    overflow: hidden;
+}
+
+.card-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    .cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Эффект увеличения карточки при наведении */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Плавное увеличение фото внутри карточки */
+.card-photo {
+    overflow: hidden;
+}
+
+.card-photo img {
+    transition: transform 0.5s ease;
+}
+
+.card:hover .card-photo img {
+    transform: scale(1.05);
+}
+
+/* Анимация для кнопок */
+.btn {
+    transition: all 0.25s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    filter: brightness(0.95);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn:active {
+    transform: translateY(1px);
+}
+
+/* Эффект пульсации для кнопки "Удалить" при наведении */
+.btn-delete {
+    transition: all 0.25s ease;
+}
+
+.btn-delete:hover {
+    background: #c82333;
+    transform: scale(1.02);
+    box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3);
+}
+
+/* Анимация для кнопки "Добавить" в шапке */
+.btn-add {
+    transition: all 0.25s ease;
+}
+
+.btn-add:hover {
+    transform: scale(1.05);
+    filter: brightness(1.05);
+    box-shadow: 0 4px 12px rgba(255, 107, 0, 0.3);
+}
+
+.btn-add:active {
+    transform: scale(0.98);
+}
+
+/* Анимация для кнопок в карточке (индивидуально) */
+.card .btn {
+    transition: all 0.2s ease;
+}
+
+.card .btn:hover {
+    transform: translateY(-3px) scale(1.02);
+}
+
+/* Эффект нажатия для всех кнопок */
+button, .btn, .btn-add, .btn-delete, .btn-back, .btn-edit {
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+button:hover, .btn-back:hover, .btn-edit:hover {
+    transform: translateY(-2px);
+    filter: brightness(0.95);
+}
+
+button:active, .btn-back:active, .btn-edit:active {
+    transform: translateY(1px);
+}
+
+/* Футер (подвал) с правами доступа */
+.footer {
+    margin-top: 60px;
+    padding: 30px 20px 20px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.footer-logo {
+    font-size: 20px;
+    font-weight: bold;
+    color: #ff6b00;
+}
+
+.footer-links {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    color: #6c757d;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+    color: #ff6b00;
+}
+
+.footer-copyright {
+    padding-top: 20px;
+    color: #6c757d;
+    font-size: 12px;
+}
+
+.footer-copyright p {
+    margin: 5px 0;
+}
+
+.footer-copyright .rights {
+    font-size: 11px;
+    color: #adb5bd;
+}
+
+/* Адаптив для футера */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .footer-links {
+        justify-content: center;
+    }
+}
+
+.view-container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.view-photo {
+    width: 100%;
+    height: 450px;
+    background: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.view-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.view-photo .no-photo {
+    font-size: 80px;
+    color: #888;
+}
+
+.view-content {
+    padding: 30px;
+}
+
+.view-price {
+    font-size: 32px;
+    font-weight: bold;
+    color: #ff6b00;
+    margin: 15px 0;
+}
+
+.view-specs {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 16px;
+    margin: 20px 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.spec-label {
+    font-size: 12px;
+    color: #6c757d;
+    text-transform: uppercase;
+}
+
+.spec-value {
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 4px;
+}
+
+.view-desc {
+    margin: 20px 0;
+    padding: 20px;
+    background: #fff3e6;
+    border-radius: 16px;
+}
+
+.view-desc h3 {
+    color: #ff6b00;
+    margin-bottom: 10px;
+}
+
+.view-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.btn-back, .btn-edit, .btn-buy {
+    padding: 12px 24px;
+    border-radius: 40px;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.btn-back {
+    background: #e9ecef;
+    color: #333;
+}
+
+.btn-edit {
+    background: #ff6b00;
+    color: white;
+}
+
+.btn-buy {
+    background: #28a745;
+    color: white;
+}
+
+/* Адаптив для страницы просмотра */
+@media (max-width: 600px) {
+    .view-content { 
+        padding: 20px; 
+    }
+    .view-photo { 
+        height: 250px; 
+    }
+    .view-price {
+        font-size: 24px;
+    }
+    .spec-value {
+        font-size: 14px;
+    }
+    .view-actions {
+        flex-direction: column;
+    }
+    .btn-back, .btn-edit, .btn-buy {
+        text-align: center;
+    }
+}
+
+/* Блок фильтрации */
+.filter-box {
+    background: white;
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.filter-box h3 {
+    margin-bottom: 15px;
+    color: #333;
+    font-size: 18px;
+}
+
+.filter-row {
+    display: flex;
+    gap: 15px;
+    align-items: flex-end;
+    flex-wrap: wrap;
+}
+
+.filter-group {
+    flex: 1;
+    min-width: 180px;
+}
+
+.filter-group label {
+    display: block;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #666;
+    text-transform: uppercase;
+}
+
+.filter-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    background: white;
+}
+
+.filter-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-filter {
+    background: #ff6b00;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.btn-filter:hover {
+    background: #e05f00;
+}
+
+.btn-reset {
+    background: #e9ecef;
+    color: #333;
+    padding: 10px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+}
+
+.btn-reset:hover {
+    background: #dee2e6;
+}
+
+@media (max-width: 768px) {
+    .filter-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .filter-actions {
+        margin-top: 10px;
+    }
+    
+    .btn-filter, .btn-reset {
+        text-align: center;
+    }
+}
